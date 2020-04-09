@@ -12,9 +12,9 @@ package com.mycompany.matrices_dispersas;
 public class Tripleta {
     private int fila;
     private  int columna;
-    private Object valor ;
+    private int valor ;
     
-    public Tripleta(int fila, int columna, Object valor) {
+    public Tripleta(int fila, int columna, int valor) {
         this.fila = fila;
         this.columna = columna;
         this.valor = valor;
@@ -36,11 +36,11 @@ public class Tripleta {
         this.columna = columna;
     }
 
-    public Object retornaValor() {
+    public int retornaValor() {
         return valor;
     }
 
-    public void asignaValor(Object valor) {
+    public void asignaValor(int valor) {
         this.valor = valor;
     }
                 

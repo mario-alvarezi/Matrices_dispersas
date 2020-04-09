@@ -11,21 +11,26 @@ package com.mycompany.matrices_dispersas;
  */
 public class NodoDoble {
 
-    private Object dato;
+    private Tripleta dato;
     private NodoDoble ligaIzquierda;
-    private NodoDoble ligaDerecha;
+    private NodoDoble ligaDerecha;   
+    private NodoDoble ligaDato;
 
     NodoDoble() {
     }
-
-    NodoDoble(int dato) {
+    NodoDoble(Tripleta dato) {        
         this.dato = dato;
         ligaIzquierda = null;
-        ligaDerecha = null;
+        ligaDerecha = null;  
+        ligaDato=null;
+    }
+    
+    public Tripleta retornaDatoTripleta(){
+        return dato;    
     }
 
-    public Object retornaDato() {
-        return dato;
+    public int retornaDatoEntero() {
+        return dato.retornaValor();
     }
 
     public NodoDoble retornaLigaIzq() {
@@ -36,14 +41,14 @@ public class NodoDoble {
         return ligaDerecha;
     }
 
-    public void asignaDato(Object d) {
+    public void asignaDatoTripleta(Tripleta d) {
         dato = d;
     }
-
-    public NodoDoble(Object dato) {
-        this.dato = dato;
-    }
-
+    
+    public void asignaDatoEntero(int d){
+        this.dato.asignaValor(d);
+    }   
+    
     public void asignaLigaIzq(NodoDoble x) {
         ligaIzquierda = x;
     }
@@ -51,5 +56,12 @@ public class NodoDoble {
     public void asignaLigaDer(NodoDoble x) {
         ligaDerecha = x;
     }
+    
+     public NodoDoble retornaLigaDato() {
+        return ligaDato;
+    }
 
+    public void asignaLigaDato(NodoDoble ligaDato) {
+        this.ligaDato = ligaDato;
+    }
 }
