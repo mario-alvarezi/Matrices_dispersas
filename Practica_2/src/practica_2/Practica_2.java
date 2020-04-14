@@ -24,6 +24,7 @@ public class Practica_2{
        Matriz[0][1]=7;
        MatrizDispersa mat=new MatrizDispersa(Matriz.length);    
        Tripleta t=new Tripleta(1,2,3);    
-       
+       mat.construye(Matriz);
+       mat.mostrarMatrizDispersa();
     }
 }

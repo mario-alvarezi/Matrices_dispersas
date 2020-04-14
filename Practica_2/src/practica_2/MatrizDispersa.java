@@ -23,7 +23,8 @@ public class MatrizDispersa {
     public void retornaCabeza(){
         mat.retornaCabeza();        
     }
-    public void construye( int[][] m){
+    public void construye( int[][]ma){
+        int [][]m= ma;
         ListaLigada l;
         Tripleta t ;
         
@@ -31,13 +32,13 @@ public class MatrizDispersa {
             t=new Tripleta(i,i,0);
             l=new ListaLigada(t);
             for(int j=1;j<=this.dimension;j++){
-                if(m[i][j]!=0){
-                    t=new Tripleta(i,j,m[i][j]);
+                if((m[i-1][j-1])!=0){
+                    t=new Tripleta(i,j,m[i-1][j-1]);
                     l.agregaPorDerecha(t);
                    
                 }else{
-                    if(m[j][i]!=0){
-                        t=new Tripleta(j,i,m[j][i]);
+                    if(m[j-1][i-1]!=0){
+                        t=new Tripleta(j,i,m[j-1][i-1]);
                         l.agregaPorIzquierda(t);
                     }                
                 }                                        
@@ -46,10 +47,21 @@ public class MatrizDispersa {
         }
     }
     public void mostrarMatrizDispersa(){
-        
-    
-    
-    }
-    
-  
+       NodoDoble p=mat.retornaCabeza();
+       NodoDoble aux;
+       p=p.retornaLigaDato();
+       
+       while(p!=mat.retornaCabeza()){
+           if(p.retornaLigaDer()!=p){
+               aux=p;
+                while(p.retornaLigaDer()!=aux){
+                    System.out.print(p);
+                    System.out.print(" ");
+                    p=p.retornaLigaDer();
+                }           
+            }
+            System.out.println(" ");   
+            p=p.retornaLigaDato();
+        }                                 
+    }      
 }
