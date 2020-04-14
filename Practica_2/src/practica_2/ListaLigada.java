@@ -35,7 +35,8 @@ public class ListaLigada {
         }while(p!=cabeza);
         this.asignaCabeza(p);        
     }
-    public void agregaPorDerecha(NodoDoble x){ 
+    public void agregaPorDerecha(Tripleta t){
+           NodoDoble x =new NodoDoble(t);
         NodoDoble p=cabeza;       
        do{           
            p=p.retornaLigaDer();
@@ -48,7 +49,8 @@ public class ListaLigada {
         this.asignaCabeza(p);   
     
     }
-    public void agregaPorIzquierda(NodoDoble x){
+    public void agregaPorIzquierda(Tripleta t){
+           NodoDoble x =new NodoDoble(t);
            NodoDoble p=cabeza;       
        do{           
            p=p.retornaLigaIzq();

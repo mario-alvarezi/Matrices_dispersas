@@ -22,35 +22,8 @@ public class Practica_2{
        Matriz[2][3]=10;
        Matriz[3][2]=25;
        Matriz[0][1]=7;
-       MatrizDispersa mat=new MatrizDispersa(Matriz);    
+       MatrizDispersa mat=new MatrizDispersa(Matriz.length);    
        Tripleta t=new Tripleta(1,2,3);    
-       p=new NodoDoble(t);       
-       System.out.println(p);
-       ListaLigada l=new ListaLigada(t);
        
-       t=new Tripleta(1,0,4);
-       p=new NodoDoble(t); 
-       l.agregaPorDato(p);
-       System.out.println(p);
-       
-       t=new Tripleta(2,0,0);
-     
-       p=new NodoDoble(t);
-       System.out.println(p);       
-       l.agregaPorDerecha(p);
-       
-       t=new Tripleta(2,4,0);       
-       p=new NodoDoble(t);
-       System.out.println(p);
-       l.agregaPorIzquierda(p);
-       
-        
-       l.mostrarLiDato();
-        System.out.println(" ");
-       l.mostrarLiIzq();
-        System.out.println(" ");
-       l.mostrarLigaDer();
-       
-      
     }
 }

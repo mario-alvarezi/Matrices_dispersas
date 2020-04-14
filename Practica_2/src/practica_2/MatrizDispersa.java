@@ -13,93 +13,43 @@ public class MatrizDispersa {
           
     private ListaLigada mat;
     private int dimension;
-    private int  m[][];
-    public MatrizDispersa(int matriz[][]) {     
-        //crear el nodo cabez de los nodo cabez 
-        Tripleta t=new Tripleta(0,0,0);        
+    
+
+    public MatrizDispersa(int dimension) {
+        Tripleta t =new Tripleta(0,0,0);
         mat=new ListaLigada(t);
-        this.dimension=matriz.length;   
-        this.m=matriz;
+        this.dimension=dimension;                
     }
-    public void crearMat(){
-        ListaLigada p;
-        NodoDoble n;
-        Tripleta t;
-        for(int i=1;i<=this.dimension;i++){
-            t= new Tripleta (i,i,0);
-            p=new ListaLigada(t);  
-            for(int j=0;j<this.dimension;j++){
-                t= new  Tripleta(i,j,this.m[i][j]);     
-                
-            }                    
-        }
-    
+    public void retornaCabeza(){
+        mat.retornaCabeza();        
     }
-
-  
-    public void CrearNodosCabeza(){
-        //enlazar los nodos cabeza  con la li 
-        Tripleta t;
-        NodoDoble p;        
-        for(int i=1;i<this.dimension;i++){  
+    public void construye( int[][] m){
+        ListaLigada l;
+        Tripleta t ;
+        
+        for(int i =1;i<=this.dimension;i++){
             t=new Tripleta(i,i,0);
-            p=new NodoDoble(t);
-            mat.agregaPorDato(p);                        
-        }         
-    }
-
-            
-    public void mostrar(){
-        NodoDoble nodo=new NodoDoble();
-        nodo=mat;    
-    do{    
-        System.out.println(nodo.retornaDatoTripleta());
-        nodo=nodo.retornaLigaDato();
-    }while(nodo!=mat);
-        
-    }
-   
-    public void agregarNodopoFila(Tripleta t){        
-        NodoDoble p=new NodoDoble(t);         
-        NodoDoble aux= new NodoDoble();
-        NodoDoble siguiente=new NodoDoble();
-        NodoDoble nodo=new NodoDoble();
-        
-        aux=mat;
-        while(aux.retornaFilaTripleta()!=p.retornaFilaTripleta()){
-            aux=aux.retornaLigaDato();
-        }
-        nodo=aux;
-        if(aux.retornaLigaDer()==aux){
-            aux.asignaLigaDer(p);
-            p.asignaLigaDer(aux);
-        }else{
-            siguiente =aux;
-            while(!(aux.retornaColumnaTripleta()<p.retornaColumnaTripleta() && p.retornaColumnaTripleta()<siguiente.retornaColumnaTripleta())){
-                aux=aux.retornaLigaDer();
-                siguiente=aux.retornaLigaDer();                
+            l=new ListaLigada(t);
+            for(int j=1;j<=this.dimension;j++){
+                if(m[i][j]!=0){
+                    t=new Tripleta(i,j,m[i][j]);
+                    l.agregaPorDerecha(t);
+                   
+                }else{
+                    if(m[j][i]!=0){
+                        t=new Tripleta(j,i,m[j][i]);
+                        l.agregaPorIzquierda(t);
+                    }                
+                }                                        
             }
-            p.asignaLigaDer(siguiente);
-            aux.asignaLigaDer(p);
-            siguiente.asignaLigaDer(aux);
+            mat.agregaPorDato(l.retornaCabeza());
         }
-        aux=mat;
-        do{    
-        System.out.println(aux.retornaDatoTripleta());
-        aux=aux.retornaLigaDato();
-        }while(aux!=nodo);
-        
-        System.out.println(p);
-        System.out.println("he");
-        System.out.println(siguiente);
-        do{
-            System.out.println(aux.retornaLigaDer());
-            aux=aux.retornaLigaDer();
-        }while(aux!=nodo);
-        
-                
     }
-
+    public void mostrarMatrizDispersa(){
+        
     
     
+    }
+    
+  
 }
