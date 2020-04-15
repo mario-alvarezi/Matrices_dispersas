@@ -64,4 +64,9 @@ public class MatrizDispersa {
             p=p.retornaLigaDato();
         }                                 
     }      
+    public boolean esSimetrica (){
+    boolean b =true;
+    
+    
+    return b;}
 }
